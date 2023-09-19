@@ -1,0 +1,42 @@
+.pl-banner {
+	text-align: center;
+}	
+
+.pl-title {
+	font-family:'Inter-Black';
+}
+
+button {
+	font-size: 150%;
+	margin: 0.5vw;
+	font-weight: normal;
+	transition: all .3s ease;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-family: 'Inter';
+	text-align: left;
+	padding-left: 3vw;
+}
+
+button:hover{
+	transform: translate(-3px,-3px);
+}
+
+.pl-logo {
+	margin-top: 1vw;
+	font-size:100px;
+}
+
+.pl-navlinks {
+	padding: 1vw;
+	display: flex;
+	flex-direction: column;
+	text-align:left;
+	font-size: 80%;
+}
+
+.pl-logo {
+	height: 50px;
+	width: 50px;
+}

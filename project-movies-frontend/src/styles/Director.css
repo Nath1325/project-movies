@@ -1,0 +1,44 @@
+.director-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0.5vw;
+    margin-bottom: 1vw;
+    border-radius: 20px;
+}
+
+.director-movies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1vw;
+    max-width: 65vw;
+    overflow-x: scroll;
+    overflow-x: auto;
+}
+
+.img-poster-director{
+    min-width: 6.5vw;
+    object-fit: fill;
+    max-height: 9.5vw;
+    border-radius: 15px;
+    margin-left: 0.3vw;
+}
+
+.director-name {
+    margin-top: 0;
+    margin-left: 0.3vw;
+}
+
+.director-picture {
+    width: 9vw;
+    max-height: 12vw;
+    border-radius: 20px;
+    object-fit:cover
+    
+}
+
+.director-picture-and-movies {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,14 @@
+.img-poster {
+    max-width: 10vw;
+    min-width: 10vw;
+    object-fit: cover;
+    max-height: 15vw;
+    border-radius: 25px;
+}
+
+.pl-listMovies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1vw;
+}
