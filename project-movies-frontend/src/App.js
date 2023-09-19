@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [inputText, setInputText] = useState("");
   const [sort, setSort] = useState("notes+");
+  const [addMovie, setAddMovie] = useState(false);
 
   useEffect(() => {
     console.log(inputText);
@@ -23,7 +24,7 @@ function App() {
       <div className="rightSideWrapper">
 
         <div className='header'>
-          <Header setInputText={setInputText} sort={sort} setSort={setSort} />
+          <Header setInputText={setInputText} sort={sort} setSort={setSort} addMovie={addMovie} setAddMovie={setAddMovie} />
         </div>
 
         <div className='content-box'>
@@ -31,7 +32,7 @@ function App() {
           <div className='main-content'>
             <Routes>
                 <Route path="/" element={<Navigate to="/movies" replace />}/>
-                <Route path="/movies" element={<Movies inputText={inputText} sort={sort} />} />
+                <Route path="/movies" element={<Movies inputText={inputText} sort={sort} addMovie={addMovie} setAddMovie={setAddMovie} />} />
                 <Route path="/directors" element={<Directors inputText={inputText} />} />
             </Routes>
           </div>

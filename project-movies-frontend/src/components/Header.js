@@ -1,7 +1,7 @@
 import '../styles/Header.css'
 import { useLocation } from 'react-router-dom';
 
-function Header({setInputText, setSort, sort}){
+function Header({setInputText, setSort, sort,addMovie,setAddMovie}){
     const { pathname } = useLocation();
 
     const isMoviesTab = pathname === '/movies' ? true : false;
@@ -28,6 +28,7 @@ function Header({setInputText, setSort, sort}){
            
            {isMoviesTab ? (
             <div className='sort-bar'>
+                <button onClick={() => setAddMovie(true)} className='button-add-movie'>Ajouter un film</button>
                 <p className='select-label'>Trier</p>
                 <select className='select-menu' onChange={e => setSort(e.target.value)} value={sort}>
                     <option value="notes+">Notes +</option>

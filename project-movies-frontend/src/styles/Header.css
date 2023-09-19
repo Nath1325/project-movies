@@ -18,6 +18,16 @@
     margin-left: 1vw;
 }
 
+.button-add-movie{
+    padding: 1vw;
+    margin-right: 2vw;
+    font-weight: bold;
+    background-color: #fcf5c7;
+    border: none;
+    border-radius: 1.625rem;
+    cursor: pointer;
+}
+
 .sort-bar {
     display: flex;
     flex-direction: row;

@@ -11,8 +11,8 @@ function Banner() {
             <h1 className='pl-title'>Cinéthèque</h1>
 
             <div className='pl-navlinks'>
-                <button onClick={() => navigate("movies")}>Films</button>
-                <button onClick={() => navigate("directors")}>Réalisateurs</button>
+                <button className='button-sidenav' onClick={() => navigate("movies")}>Films</button>
+                <button className='button-sidenav' onClick={() => navigate("directors")}>Réalisateurs</button>
             </div>
         </div>
     )

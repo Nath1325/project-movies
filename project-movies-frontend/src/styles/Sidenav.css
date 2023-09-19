@@ -6,7 +6,7 @@
 	font-family:'Inter-Black';
 }
 
-button {
+.button-sidenav {
 	font-size: 150%;
 	margin: 0.5vw;
 	font-weight: normal;
@@ -19,7 +19,7 @@ button {
 	padding-left: 3vw;
 }
 
-button:hover{
+.button-sidenav:hover{
 	transform: translate(-3px,-3px);
 }
 

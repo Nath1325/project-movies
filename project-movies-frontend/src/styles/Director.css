@@ -11,18 +11,56 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 1vw;
-    max-width: 65vw;
+    max-width: 57vw;
     overflow-x: scroll;
     overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.director-movies::-webkit-scrollbar{
+    display: none;
+}
+
+.slider-movies {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2vw;
+}
+
+
+.chevron-left {
+    align-self: center;
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.chevron-left:hover{
+    color: black;
+}
+
+.chevron-right {
+    align-self: center;
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.chevron-right:hover{
+    color: black;
 }
 
 .img-poster-director{
-    min-width: 6.5vw;
-    object-fit: fill;
-    max-height: 9.5vw;
+    width: 7.5vw;
+    object-fit: cover;
+    max-height: 10.5vw;
     border-radius: 15px;
     margin-left: 0.3vw;
+    cursor:pointer;
+}
+
+.img-poster-director:hover{
+    transform: scale(1.10);
+    transition-duration: 300ms; 
+    transition-timing-function: ease;
 }
 
 .director-name {
@@ -31,11 +69,11 @@
 }
 
 .director-picture {
-    width: 9vw;
-    max-height: 12vw;
+    width: 10vw;
+    max-height: 13vw;
     border-radius: 20px;
-    object-fit:cover
-    
+    object-fit:cover;
+    margin-left: 1vw;
 }
 
 .director-picture-and-movies {
