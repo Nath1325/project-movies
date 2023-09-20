@@ -2,6 +2,7 @@ import '../styles/Movies.css'
 import { getMovies } from '../services/MovieService';
 import { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
+import AddMovieModal from '../components/AddMovieModal';
 
 
 function Movies({inputText,sort,addMovie,setAddMovie}) {
@@ -52,8 +53,6 @@ function Movies({inputText,sort,addMovie,setAddMovie}) {
 
     sortMovies();
 
-    console.log(inputText,movies,filteredMovies);
-
     useEffect(() =>{
         getMovies().then((res) => {
             setMovies(res.data);
@@ -61,10 +60,6 @@ function Movies({inputText,sort,addMovie,setAddMovie}) {
         .catch((error) =>
         alert("Error fetching movies : \n"+error));
     }, [])
-
-    useEffect(() => {
-        console.log(movies);
-    },[movies])
 
     var modal = document.getElementById("addMovieModal");
 
@@ -74,38 +69,16 @@ function Movies({inputText,sort,addMovie,setAddMovie}) {
         }
     }
 
-    function handleSubmit(){
-
-    }
-
     return (
         <>
-            <div id='addMovieModal' className='modal'>
-                <div className='modal-content'>
-                    <p onClick={() => setAddMovie(false)} class="close-modal">&times;</p>
-                    <div className='add-movie-form'>
-                        <form onSubmit={() => handleSubmit()}>
-                            <h2>Ajouter un film</h2>
-                            <p>Titre</p>
-                            <input type='text' className='input-text-form'></input>
-                            <p>Lien vers l'affiche</p>
-                            <input type='text' className='input-text-form'></input>
-                            <p>Année de sortie</p>
-                            <input type='text' className='input-text-form'></input>
-                            <p>Nom du réalisateur</p>
-                            <input type='text' className='input-text-form'></input>
-                        </form>
-                        <div className='add-movie-poster'>
-                            <img src=''></img>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='pl-listMovies'>
-                    {filteredMovies.map((movie) => 
-                        <Movie key={movie.id} movie={movie}></Movie>
-                    )}
-            </div>
+        <div id='addMovieModal' className='modal'>
+        <AddMovieModal addMovie={addMovie} setAddMovie={setAddMovie}/>
+        </div>
+        <div className='pl-listMovies'>
+                {filteredMovies.map((movie) => 
+                    <Movie key={movie.id} movie={movie}></Movie>
+                )}
+        </div>
         </>
     )
 }

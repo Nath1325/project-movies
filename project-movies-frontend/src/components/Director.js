@@ -22,27 +22,27 @@ function Director({director}){
 
     const slideLeft = () => {
         console.log("slideLeft");
-        var slider = document.getElementById(director.firstName+"-slider");
+        var slider = document.getElementById(director.name+"-slider");
         slider.scrollLeft = slider.scrollLeft - 250;
     }
 
     const slideRight = () => {
         console.log("slideRight");
-        var slider = document.getElementById(director.firstName+"-slider");
+        var slider = document.getElementById(director.name+"-slider");
         console.log(slider);
         slider.scrollLeft = slider.scrollLeft + 250
     }
 
     return (
             <div className='director-card'>
-            <h2 className='director-name'>{director.firstName} {director.lastName}</h2>
+            <h2 className='director-name'> {director.name}</h2>
             <div className='director-picture-and-movies '>
                 <div>
-                    <img className="director-picture" src={director.pictureLink} alt={director.lastName}/>
+                    <img className="director-picture" src={director.pictureLink} alt={director.name}/>
                 </div>
                 <div className='slider-movies'>
                     <MdChevronLeft size={40} className='chevron-left' onClick={slideLeft}/>
-                    <div className='director-movies' id={director.firstName+"-slider"}>
+                    <div className='director-movies' id={director.name+"-slider"}>
                             {
                                 movies.map((movie) => {
                                     console.log(movie)

@@ -15,8 +15,8 @@ public class DirectorServiceImpl implements DirectorService {
     DirectorRepository directorRepository;
 
     public Director addDirector(Director d) throws ResourceAlreadyExistException {
-        if (directorRepository.findByFirstNameAndLastName(d.getFirstName(),d.getLastName()).isPresent()){
-            throw new ResourceAlreadyExistException("Director "+d.getFirstName()+" "+d.getLastName()+" already in DB");
+        if (directorRepository.findByName(d.getName()).isPresent()){
+            throw new ResourceAlreadyExistException("Director "+d.getName()+" already in DB");
         }
         return directorRepository.save(d);
     }

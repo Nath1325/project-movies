@@ -26,9 +26,8 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Movie addMovie(MovieDTO m) throws ResourceAlreadyExistException {
         Director d;
-        Optional<Director> directorOpt = directorRepository.findByFirstNameAndLastName(m.getDirectorFirstName(),
-                m.getDirectorLastName());
-        d = directorOpt.orElseGet(() -> new Director(m.getDirectorFirstName(), m.getDirectorLastName()));
+        Optional<Director> directorOpt = directorRepository.findByName(m.getDirectorName());
+        d = directorOpt.orElseGet(() -> new Director(m.getDirectorName()));
         directorRepository.save(d);
         Movie movie = new Movie();
         movie.setDirector(d);
@@ -45,10 +44,10 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getMoviesByDirectorFirstAndLastName(String firstName, String lastName) throws ResourceNotFoundException {
+    public List<Movie> getMoviesByDirectorName(String name) throws ResourceNotFoundException {
         List<Movie> movies = new ArrayList<>();
-        Optional<Director> directorOptional = directorRepository.findByFirstNameAndLastName(firstName,lastName);
-        if (directorOptional.isEmpty()) throw new ResourceNotFoundException(" Director "+firstName+" "+lastName+"not found in DB.");
+        Optional<Director> directorOptional = directorRepository.findByName(name);
+        if (directorOptional.isEmpty()) throw new ResourceNotFoundException(" Director "+name+" not found in DB.");
         return movieRepository.getMoviesByDirectorId(directorOptional.get().getId());
     }
 

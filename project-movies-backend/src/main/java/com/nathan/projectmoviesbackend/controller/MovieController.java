@@ -36,10 +36,10 @@ public class MovieController {
     }
 
     @GetMapping("/movies/directorName")
-    public List<Movie> getMoviesByDirectorFirstAndLastName(@RequestParam String firstName, @RequestParam String lastName){
+    public List<Movie> getMoviesByDirectorName(@RequestParam String name){
         List<Movie> movies;
         try {
-            movies = movieService.getMoviesByDirectorFirstAndLastName(firstName,lastName);
+            movies = movieService.getMoviesByDirectorName(name);
         } catch (ResourceNotFoundException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
         }

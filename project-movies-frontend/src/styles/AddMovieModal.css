@@ -1,0 +1,87 @@
+.add-movie-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-movie-poster-container{
+    background-color: whitesmoke;
+    width: 20vw;
+    height: 29vw;
+    border-radius: 35px;
+    margin-top: 6vw;
+    margin-left: 3vw;
+}
+
+.add-movie-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.add-movie-button {
+    padding: 1vw;
+    font-weight: bold;
+    background-color: #fcf5c7;
+    border: none;
+    border-radius: 1.625rem;
+    cursor: pointer; 
+    align-self: center;
+    margin-top: 2vw;
+    margin-bottom: 0;
+    width: 10vw;
+}
+
+.add-movie-poster {
+    width: 20vw;
+    height: 29vw;
+    border-radius: 35px;
+    object-fit: cover;
+    border: 3px solid whitesmoke;
+}
+
+.input-text-form{
+    border: none;
+    background-color: whitesmoke;
+    padding: 0.8vw;
+    width: 15vw;
+    border-radius: 25px;
+    outline: none;
+    
+}
+
+.modal-content{
+    position: relative;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 1% auto;
+    padding: 2vw;
+    padding-top: 0;
+    width: 40%;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    overflow: hidden;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+.close-modal{
+    color: #aaaaaa;
+    font-size: 34px;
+    font-weight: bold;
+    align-self: end;
+    margin: 0;
+    position: absolute;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

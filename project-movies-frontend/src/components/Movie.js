@@ -22,7 +22,7 @@ function Movie ({movie}){
             <div className='pl-movieCard'>
                     <div className='movie-desc'>
                         <p className='movie-title'>{movie.name}</p>
-                        <p className='movie-director'>{movie.director.firstName} {movie.director.lastName}, {movie.releaseDate}</p>
+                        <p className='movie-director'>{movie.director.name}, {movie.releaseDate}</p>
                     </div>
                     <div className='poster-container'>
                         <img className="img-poster" src={movie.posterLink} alt={movie.name} />

@@ -1,6 +1,7 @@
 package com.nathan.projectmoviesbackend.service.interfaces;
 
 import com.nathan.projectmoviesbackend.dto.MovieDTO;
+import com.nathan.projectmoviesbackend.exception.ResourceNotFoundException;
 import com.nathan.projectmoviesbackend.model.Movie;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface MovieService {
 
     public List<Movie> getMovies();
 
-    public List<Movie> getMoviesByDirectorFirstAndLastName(String firstName, String lastName);
+    List<Movie> getMoviesByDirectorName(String name) throws ResourceNotFoundException;
 
     public Movie rateMovieByMovieId(long movieId, int rating);
 

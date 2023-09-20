@@ -1,0 +1,34 @@
+input {
+    border: none;
+    background-color: whitesmoke;
+    padding: 0.8vw;
+    width: 15vw;
+    border-radius: 25px;
+    outline: none;
+}
+  
+.no-suggestions {
+    color: #999;
+    padding: 0.5rem;
+}
+  
+.suggestions {
+    list-style: none;
+    margin-top: 0;
+    max-height: 143px;
+    overflow-y: auto;
+    padding-left: 0;
+    width: 16.3vw;
+    font-size: small;
+}
+  
+.suggestions li {
+    padding: 0.5rem;
+}
+  
+.suggestion-active,
+.suggestions li:hover {
+    background-color: #ffc09f;
+    color: black;
+    cursor: pointer;
+}

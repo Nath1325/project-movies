@@ -21,9 +21,7 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String firstName;
-
-    private String lastName;
+    private String name;
 
     private String pictureLink;
 
@@ -31,9 +29,8 @@ public class Director {
     @JsonIgnore
     private List<Movie> movies;
 
-    public Director(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Director(String name){
+        this.name = name;
         movies = new ArrayList<>();
     }
 

@@ -12,9 +12,7 @@ import lombok.Setter;
 public class MovieDTO {
     private String name;
 
-    private String directorFirstName;
-
-    private String directorLastName;
+    private String directorName;
 
     private String releaseDate;
 
