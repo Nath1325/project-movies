@@ -35,6 +35,7 @@ function Autocomplete({suggestions, setDirectorName}){
             setActiveSuggestion(0);
             setShowSuggestions(false);
             setUserInput(filteredSuggestions[activeSuggestion]);
+            setDirectorName(filteredSuggestions[activeSuggestion]);  
         }
         else if (e.keyCode === 38){
             if (activeSuggestion === 0){

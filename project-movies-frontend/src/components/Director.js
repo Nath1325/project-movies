@@ -2,15 +2,10 @@ import '../styles/Director.css'
 import { getMoviesByDirectorId } from '../services/MovieService';
 import { useState, useEffect } from 'react';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
+import { FaStar } from 'react-icons/fa'
 
 function Director({director}){
     const[movies,setMovies] = useState([]);
-
-    const settings = {
-        infinite: false,
-        slidesToShow: 1,
-        swipeToSlide: true,
-      };
 
     useEffect(() =>{
         getMoviesByDirectorId(director.id).then((res) => {
@@ -35,7 +30,15 @@ function Director({director}){
 
     return (
             <div className='director-card'>
-            <h2 className='director-name'> {director.name}</h2>
+            <div className='director-name-and-rating'>
+                <h2 className='director-name'> {director.name}</h2>
+                <div className='average-star'> 
+                    <FaStar color='#ffc107'/>
+                </div>
+                {
+                    (movies.reduce((total,next)=> total + next.rating, 0) / movies.length).toPrecision(2)
+                }
+            </div>
             <div className='director-picture-and-movies '>
                 <div>
                     <img className="director-picture" src={director.pictureLink} alt={director.name}/>

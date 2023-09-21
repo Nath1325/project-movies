@@ -5,7 +5,7 @@ import Movie from '../components/Movie';
 import AddMovieModal from '../components/AddMovieModal';
 
 
-function Movies({inputText,sort,addMovie,setAddMovie}) {
+function Movies({inputText,sortMovies,addMovie,setAddMovie}) {
     const [movies, setMovies] = useState([]);
     const filteredMovies = movies.filter((movie) => movie.name.toLowerCase().includes(inputText.toLowerCase()));
 
@@ -19,8 +19,8 @@ function Movies({inputText,sort,addMovie,setAddMovie}) {
         }
     },[addMovie])
 
-    function sortMovies() {
-        switch (sort) {
+    function sortMoviesArray() {
+        switch (sortMovies) {
             case "notes+":
                 filteredMovies.sort((movieA, movieB) => movieB.rating - movieA.rating);
                 break;
@@ -51,7 +51,7 @@ function Movies({inputText,sort,addMovie,setAddMovie}) {
         }
     };
 
-    sortMovies();
+    sortMoviesArray();
 
     useEffect(() =>{
         getMovies().then((res) => {

@@ -33,7 +33,7 @@ public class MovieServiceImpl implements MovieService {
         movie.setDirector(d);
         movie.setName(m.getName());
         movie.setReleaseDate(m.getReleaseDate());
-        movie.setRating(null);
+        movie.setRating(m.getRating());
         movie.setPosterLink(m.getPosterLink());
         return movieRepository.save(movie);
     }

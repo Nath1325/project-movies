@@ -16,3 +16,7 @@ export function rateMovieById(movieId, rating){
     });
 }
 
+export function postMovie(movie){
+    return axios.post(MOVIE_API_BASE_URL,movie);
+}
+

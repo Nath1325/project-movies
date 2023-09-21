@@ -1,8 +1,9 @@
 import '../styles/AddMovieModal.css'
 import { useEffect, useState } from 'react';
 import { getDirectors } from '../services/DirectorService';
-import { addMovie } from '../services/MovieService'
+import { postMovie } from '../services/MovieService';
 import Autocomplete from './Autocomplete';
+import { FaStar } from 'react-icons/fa'
 
 function AddMovieModal({addMovie,setAddMovie}){
     const [newMoviePoster,setNewMoviePoster] = useState('');
@@ -10,6 +11,12 @@ function AddMovieModal({addMovie,setAddMovie}){
     const [movieName,setMovieName] = useState("");
     const [directorName,setDirectorName] = useState("");
     const [releaseDate,setReleaseDate] = useState("");
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
+
+    function setMovieRating(currentRating){
+        setRating(currentRating);
+    }
 
     useEffect(()=>{
         getDirectors().then( (res) => setDirectors(res.data));
@@ -25,9 +32,10 @@ function AddMovieModal({addMovie,setAddMovie}){
             directorName : directorName,
             releaseDate : releaseDate,
             posterLink : newMoviePoster,
-            rating: null
+            rating: rating
         }
-        addMovie(movie);
+        console.log(movie);
+        postMovie(movie);
     }
 
     const handleKeyDown = (event, callback) => {
@@ -54,6 +62,29 @@ function AddMovieModal({addMovie,setAddMovie}){
                     suggestions={directors.map(function(director){
                         return director["name"]
                     })}></Autocomplete>
+                    <p>Note</p>
+                    <div className='stars-rating'>
+                            {[...Array(5)].map( (star, index) => {
+                                const currentRating = index + 1;
+                                return( 
+                                    <label key={index+"star"}>
+                                        <input type='radio' 
+                                        name='rating' 
+                                        value={currentRating} 
+                                        onClick={() => {setMovieRating(currentRating)}} 
+                                        />
+
+                                        <FaStar 
+                                        className='star'
+                                        size={20}
+                                        color={currentRating <= (hover || rating ) ? "#ffc107" : "#e4e5e9"} 
+                                        onMouseEnter={() => setHover(currentRating)}
+                                        onMouseLeave={() => setHover(null)}
+                                        />
+                                    </label>
+                                );
+                            })}
+                        </div>
                     <button type='submit' className='add-movie-button'>Ajouter</button>
                 </form>
                 <div className='add-movie-poster-container'>

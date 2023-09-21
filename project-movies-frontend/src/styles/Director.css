@@ -18,6 +18,18 @@
     padding: 1vw;
 }
 
+.director-name-and-rating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3vw;
+
+}
+
+.director-name{
+    margin-right: 1vw;
+}
+
 .director-movies::-webkit-scrollbar{
     display: none;
 }
@@ -27,7 +39,6 @@
     flex-direction: row;
     margin-left: 2vw;
 }
-
 
 .chevron-left {
     align-self: center;
@@ -62,11 +73,6 @@
     transform: scale(1.10);
     transition-duration: 300ms; 
     transition-timing-function: ease;
-}
-
-.director-name {
-    margin-top: 0;
-    margin-left: 0.3vw;
 }
 
 .director-picture {

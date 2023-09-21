@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [sort, setSort] = useState("notes+");
+  const [sortMovies, setSortMovies] = useState("notes+");
+  const [sortDirectors, setSortDirectors] = useState("ordreAlphabetique");
   const [addMovie, setAddMovie] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,14 @@ function App() {
       <div className="rightSideWrapper">
 
         <div className='header'>
-          <Header setInputText={setInputText} sort={sort} setSort={setSort} addMovie={addMovie} setAddMovie={setAddMovie} />
+          <Header 
+          setInputText={setInputText}
+          sortMovies={sortMovies}
+          setSortMovies={setSortMovies}
+          addMovie={addMovie}
+          setAddMovie={setAddMovie}
+          sortDirectors={sortDirectors}
+          setSortDirectors={setSortDirectors} />
         </div>
 
         <div className='content-box'>
@@ -32,8 +40,15 @@ function App() {
           <div className='main-content'>
             <Routes>
                 <Route path="/" element={<Navigate to="/movies" replace />}/>
-                <Route path="/movies" element={<Movies inputText={inputText} sort={sort} addMovie={addMovie} setAddMovie={setAddMovie} />} />
-                <Route path="/directors" element={<Directors inputText={inputText} />} />
+                <Route path="/movies" element={
+                <Movies
+                  inputText={inputText}
+                  sortMovies={sortMovies}
+                  addMovie={addMovie}
+                  setAddMovie={setAddMovie} 
+                  />} 
+                />
+                <Route path="/directors" element={<Directors inputText={inputText} sortDirectors={sortDirectors} />} />
             </Routes>
           </div>
 
